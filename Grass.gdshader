@@ -19,7 +19,7 @@ varying float height;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	worldPos = inverse(MODEL_MATRIX) * vec4(VERTEX, 1.0);
+	worldPos = (MODEL_MATRIX) * vec4(VERTEX, 1.0);
 	
 	height = 1.0 - UV.y;
 	
@@ -28,7 +28,7 @@ void vertex() {
 	noi = texture(noiseTex, (worldPos.xz * windNoiseScale) + TIME * windSpeed);
 	
 	float new = noi.r;
-	VERTEX.x += new * windPower * pow(height, 2);
+	VERTEX.xz += new * windPower * pow(height, 2);
 }
 
 void fragment() {
