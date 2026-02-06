@@ -6,9 +6,9 @@ uniform float amplitude : hint_range(0.0, 1.0, 0.1);
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	vec4 height = texture(heightmap, UV);
+	vec4 height = texture(heightmap, UV + .5);
 	
-	VERTEX.y = height.r * amplitude;
+	VERTEX.y = height.r * .2;//amplitude;
 	
 }
 

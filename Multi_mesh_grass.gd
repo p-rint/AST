@@ -25,7 +25,7 @@ func multi():
 	for i in 10:
 		for j in 10:
 			var b = Basis().rotated(Vector3.UP, randf_range(0, PI * 2))
-			var t = Transform3D(b, Vector3(i * .5,0, j * .5))
+			var t = Transform3D(b, Vector3((i * .5) ,0, j * .5))
 			multimesh.set_instance_transform(index, t)
 			#print(i)
 			index += 1
